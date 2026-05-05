@@ -1,41 +1,49 @@
-const container = document.getElementById("lettersContainer")
+const lettersContainer = document.getElementById("lettersContainer")
 const filter = document.getElementById("filter")
 
-async function displayLetters(selectedTopic = "all") {
-  let query = supabaseClient
-    .from("letters")
-    .select("*")
-    .order("created_at", { ascending: false })
+async function loadLetters(selectedTopic = "All") {
 
-  if (selectedTopic !== "all") {
-    query = query.eq("topic", selectedTopic)
-  }
+    let query = supabaseClient
+        .from("letters")
+        .select("*")
+        .order("created_at", { ascending: false })
 
-  const { data, error } = await query
+    if (selectedTopic !== "All") {
+        query = query.eq("topic", selectedTopic)
+    }
 
-  if (error) {
+    const { data, error } = await query
+
+    console.log(data)
     console.log(error)
-    container.innerHTML = "<p>failed to load archive.</p>"
-    return
-  }
 
-  container.innerHTML = ""
+    lettersContainer.innerHTML = ""
 
-  data.forEach(entry => {
-    const div = document.createElement("div")
-    div.classList.add("letter-card")
+    if (!data || data.length === 0) {
+        lettersContainer.innerHTML = `
+            <p style="text-align:center;">
+                no letters found
+            </p>
+        `
+        return
+    }
 
-    div.innerHTML = `
-      <p class="topic">${entry.topic}</p>
-      <p class="text">${entry.content}</p>
-    `
+    data.forEach(letter => {
 
-    container.appendChild(div)
-  })
+        const card = document.createElement("div")
+        card.className = "letter-card"
+
+        card.innerHTML = `
+            <div class="topic">${letter.topic}</div>
+            <div class="text">${letter.content}</div>
+        `
+
+        lettersContainer.appendChild(card)
+    })
 }
 
-filter.addEventListener("change", () => {
-  displayLetters(filter.value)
-})
+loadLetters()
 
-displayLetters()
+filter.addEventListener("change", () => {
+    loadLetters(filter.value)
+})
