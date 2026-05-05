@@ -1,20 +1,25 @@
-document.querySelector(".letter-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+const form = document.querySelector(".letter-form")
 
-    const topic = document.getElementById("topic").value;
-    const letter = document.getElementById("letter").value;
+form.addEventListener("submit", async (e) => {
+  e.preventDefault()
 
-    const newEntry = {
+  const topic = document.getElementById("topic").value
+  const content = document.getElementById("letter").value
+
+  const { error } = await supabaseClient
+    .from("letters")
+    .insert([
+      {
         topic: topic,
-        text: letter,
-        date: new Date().toISOString()
-    };
+        content: content
+      }
+    ])
 
-    const letters = JSON.parse(localStorage.getItem("deadletters")) || [];
-
-    letters.push(newEntry);
-
-    localStorage.setItem("deadletters", JSON.stringify(letters));
-
-    window.location.href = "read.html";
-});
+  if (error) {
+    alert("failed to send letter")
+    console.log(error)
+  } else {
+    alert("letter sent")
+    form.reset()
+  }
+})
