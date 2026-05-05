@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+:root {
+    --bg: #cfc6b8;
+    --paper: #d8cbbb;
+    --title-text: #3b0d0d;
+    --body-text: #1a1a1a;
+    --muted-text: #5f554d;
+    --gold: #8c6b3f;
+    --ink: #211814;
+
+    --heading-font: 'Playfair Display SC', serif;
+    --nav-link-font: 'Playfair Display', serif;
+    --letter-font: 'Homemade Apple', cursive;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        linear-gradient(rgba(207, 198, 184, 0.85), rgba(207, 198, 184, 0.9)),
+        url('photos/girls.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--body-text);
+    font-family: var(--nav-link-font);
+}
+
+/* vignette */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.4));
+    pointer-events: none;
+}
+
+/* paper texture */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 38px 38px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 64px;
+    border-bottom: 1px solid rgba(59, 13, 13, 0.18);
+}
+
+.logo {
+    margin: 0;
+    font-family: var(--heading-font);
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: var(--title-text);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+}
+
+nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-family: var(--nav-link-font);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    transition: 0.25s ease;
+}
+
+a:hover {
+    color: var(--title-text);
+    letter-spacing: 3px;
+}
+
+/* PAGE TITLE */
+
+.read-page p {
+    text-align: center;
+    font-family: var(--heading-font);
+    color: var(--title-text);
+    letter-spacing: 4px;
+    font-size: 46px;
+    margin-top: 60px;
+}
+
+/* FILTER DROPDOWN */
+
+#filter {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    display: block;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #3b0d0d;
+    color: #1a1a1a;
+    font-family: var(--nav-link-font);
+    font-size: 16px;
+    padding: 10px 0;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%233B0D0D' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* LETTER LIST */
+
+#lettersContainer {
+    max-width: 700px;
+    margin: 40px auto 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* EACH LETTER */
+
+.letter-card {
+    position: relative;
+    padding: 40px 45px;
+
+    background:
+        linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.05)),
+        var(--paper);
+
+    border: 1px solid rgba(59,13,13,0.2);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.15),
+        inset 0 0 60px rgba(59,13,13,0.06);
+
+    font-family: var(--letter-font);
+    line-height: 2.1;
+    color: var(--ink);
+
+    transform: rotate(-0.2deg);
+    transition: 0.3s ease;
+}
+
+/* inner border */
+.letter-card::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(140,107,63,0.35);
+    pointer-events: none;
+}
+
+.letter-card:hover {
+    transform: rotate(0deg) scale(1.01);
+}
+
+/* TOPIC LABEL */
+
+.topic {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--title-text);
+    margin-bottom: 12px;
+}
+
+/* LETTER TEXT */
+
+.text {
+    white-space: pre-line;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    header {
+        padding: 22px 24px;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    .letter-card {
+        margin: 0 18px;
+        padding: 30px 25px;
+        font-size: 15px;
+        line-height: 2;
+    }
+}

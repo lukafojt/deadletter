@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+:root {
+    --bg: #cfc6b8;
+    --paper: #d8cbbb;
+    --title-text: #3b0d0d;
+    --body-text: #1a1a1a;
+    --muted-text: #5f554d;
+    --gold: #8c6b3f;
+    --ink: #211814;
+
+    --heading-font: 'Playfair Display SC', serif;
+    --nav-link-font: 'Playfair Display', serif;
+    --letter-font: 'Homemade Apple', cursive;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(rgba(207, 198, 184, 0.85), rgba(207, 198, 184, 0.9)), url('photos/girls.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--body-text);
+    font-family: var(--nav-link-font);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.4));
+    pointer-events: none;
+}
+
+/* subtle aged-paper texture */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 38px 38px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 64px;
+    border-bottom: 1px solid rgba(59, 13, 13, 0.18);
+}
+
+.logo {
+    margin: 0;
+    font-family: var(--heading-font);
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: var(--title-text);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+}
+
+nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-family: var(--nav-link-font);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    transition: 0.25s ease;
+}
+
+a:hover {
+    color: var(--title-text);
+    letter-spacing: 3px;
+}
+
+.write-page {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 70px 24px;
+}
+
+.write-card {
+    width: 100%;
+    max-width: 720px;
+    padding: 56px;
+    background: 
+        linear-gradient(rgba(255,255,255,0.16), rgba(255,255,255,0.04)),
+        var(--paper);
+    border: 1px solid rgba(59, 13, 13, 0.25);
+    box-shadow: 
+        0 30px 80px rgba(0,0,0,0.2),
+        inset 0 0 100px rgba(59, 13, 13, 0.08);
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--title-text);
+    margin-bottom: 18px;
+}
+
+.write-card h1 {
+    font-family: var(--heading-font);
+    font-size: clamp(34px, 6vw, 64px);
+    font-weight: 400;
+    color: var(--title-text);
+    margin-bottom: 40px;
+}
+
+.letter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.letter-form label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-text);
+}
+
+.letter-form select, .letter-form textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(59, 13, 13, 0.28);
+    color: var(--ink);
+    font-family: var(--nav-link-font);
+    font-size: 16px;
+    padding: 14px 16px;
+    outline: none;
+}
+
+.letter-form textarea {
+    min-height: 260px;
+    resize: vertical;
+    font-family: var(--letter-font);
+    line-height: 2;
+}
+
+.letter-form select:focus, .letter-form textarea:focus {
+    border-color: var(--title-text);
+}
+
+.letter-form button {
+    margin-top: 18px;
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid var(--title-text);
+    color: var(--title-text);
+    padding: 13px 22px;
+    font-family: var(--nav-link-font);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}

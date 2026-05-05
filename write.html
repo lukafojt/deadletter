@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>WRITE</title>
+        <link rel="stylesheet" href="write.css">
+    </head>
+
+    <body>
+        <header>
+            <h1 class="logo">DEADLETTER</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="read.html">READ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="write-page">
+            <section class="write-card">
+                <p class="eyebrow">TO: No One</p>
+
+                <form class="letter-form">
+                    <label for="topic">SUBJECT:</label>
+                    <select id="topic" name="topic" required>
+                        <option value="" disabled selected>...</option>
+                        <option value="Love">Love</option>
+                        <option value="Apology">Apology</option>
+                        <option value="Confession">Confession</option>
+                        <option value="Family">Family</option>
+                        <option value="Past-Lover">Past-Lover</option>
+                        <option value="Enemy">Enemy</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Crush">Crush</option>
+                    </select>
+
+                    <label for="letter"></label>
+                    <textarea id="letter" name="letter" placeholder="leave it all here..." required></textarea>
+                    
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+        <script src="write.js"></script>
+    </body>
+</html>
