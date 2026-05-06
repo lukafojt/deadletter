@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 :root {
     --bg: #cfc6b8;
@@ -13,7 +13,7 @@
 
     --heading-font: 'Playfair Display SC', serif;
     --nav-link-font: 'Playfair Display', serif;
-    --letter-font: 'Homemade Apple', cursive;
+    --letter-font: 'Rock Salt', cursive;
 }
 
 * {
