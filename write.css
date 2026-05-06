@@ -240,7 +240,7 @@ a:hover {
 
     .letter-form textarea {
         min-height: 240px;
-        padding: 0;
+        padding: 14px;
         font-size: 14px;
         line-height: 2;
     }
