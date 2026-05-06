@@ -196,18 +196,73 @@ a:hover {
 /* MOBILE */
 
 @media (max-width: 700px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
     header {
-        padding: 22px 24px;
+        padding: 22px 20px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 28px;
+        letter-spacing: 2px;
     }
 
     nav ul {
-        gap: 18px;
+        gap: 20px;
+    }
+
+    a {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .read-title {
+        font-size: 34px;
+        letter-spacing: 3px;
+        margin-top: 42px;
+        margin-bottom: 10px;
+    }
+
+    #filter {
+        width: calc(100% - 36px);
+        margin: 26px auto 34px;
+        font-size: 14px;
+        padding: 12px 0;
+        background-position: right 4px center;
+    }
+
+    #lettersContainer {
+        width: calc(100% - 28px);
+        margin: 0 auto 70px;
+        gap: 22px;
     }
 
     .letter-card {
-        margin: 0 18px;
-        padding: 30px 25px;
-        font-size: 15px;
+        padding: 30px 22px;
+        font-size: 14px;
         line-height: 2;
+        transform: rotate(0deg);
+    }
+
+    .letter-card::before {
+        inset: 12px;
+    }
+
+    .topic {
+        font-size: 9px;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+        opacity: 0.55;
+    }
+
+    .text {
+        font-size: 14px;
+        line-height: 2.1;
     }
 }

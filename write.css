@@ -176,3 +176,80 @@ a:hover {
     cursor: pointer;
     transition: 0.3s ease;
 }
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    header {
+        padding: 22px 20px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    a {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .write-page {
+        padding: 35px 16px 60px;
+    }
+
+    .write-card {
+        width: 100%;
+        padding: 34px 22px;
+        transform: rotate(0deg);
+    }
+
+    .write-card::before {
+        inset: 12px;
+    }
+
+    .eyebrow {
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-bottom: 24px;
+    }
+
+    .letter-form label {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .letter-form select {
+        font-size: 14px;
+        padding: 12px 0;
+        margin-bottom: 28px;
+        background-position: right 4px center;
+    }
+
+    .letter-form textarea {
+        min-height: 240px;
+        padding: 0;
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .letter-form button {
+        width: 100%;
+        margin-top: 34px;
+        padding: 14px 18px;
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+}

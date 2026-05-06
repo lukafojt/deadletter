@@ -151,19 +151,54 @@ a:hover {
     }
 }
 
+/* MOBILE */
+
 @media (max-width: 700px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
     header {
-        padding: 22px 24px;
+        padding: 22px 20px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 28px;
+        letter-spacing: 2px;
     }
 
     nav ul {
-        gap: 18px;
+        gap: 20px;
+    }
+
+    a {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .page {
+        min-height: auto;
+        padding: 34px 0 60px;
     }
 
     .letter {
-        margin: 40px 18px;
-        padding: 42px 30px;
-        font-size: 15px;
-        line-height: 2;
+        width: calc(100% - 28px);
+        margin: 0 auto;
+        padding: 38px 24px;
+        font-size: 13px;
+        line-height: 2.1;
+        transform: rotate(0deg);
+    }
+
+    .letter::before {
+        inset: 12px;
+    }
+
+    .letter:hover {
+        transform: none;
     }
 }
